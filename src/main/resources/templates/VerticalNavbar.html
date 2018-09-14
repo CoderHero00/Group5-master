@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item nav-profile">
+            <div class="nav-link">
+                <div class="user-wrapper mb-0" th:if="${#request.userPrincipal != null}">
+                    <div class="profile-image">
+                        <img src="/images/user_default_photo.png" alt="profile image">
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="profile-name" th:utext="${#request.userPrincipal.name}"></p>
+                        <div>
+                            <small class="designation text-muted">Trạng thái</small>
+                            <span class="status-indicator online"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/">
+                <i class="menu-icon mdi mdi-search-web"></i>
+                <span class="menu-title">Tra cứu thông tin</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="menu-icon mdi mdi-television"></i>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/manage-employee">
+                <i class="menu-icon mdi mdi-account-location"></i>
+                <span class="menu-title">Quản lý nhân viên</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="menu-icon mdi mdi-bus"></i>
+                <span class="menu-title">Quản lý xe</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

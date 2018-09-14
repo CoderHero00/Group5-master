@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+        <a class="navbar-brand brand-logo">
+            <img class="img-fluid" src="/images/logo.png" alt="Logo"/>
+        </a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center">
+        <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown d-none d-xl-inline-block" th:if="${#request.userPrincipal == null}">
+                <a class="nav-link mdi mdi-login" th:href="@{/login}">
+                    <span class="profile-text">Đăng nhập</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown d-none d-xl-inline-block" th:if="${#request.userPrincipal != null}">
+                <a class="nav-link mdi mdi-logout" th:href="@{/logout}">
+                    <span class="profile-text">Đăng xuất</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

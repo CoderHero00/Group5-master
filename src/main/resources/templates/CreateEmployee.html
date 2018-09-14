@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bus Reservation System</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/customCSS.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico"/>
+</head>
+
+<body>
+<style>
+    label {
+        font-size: 15px !important;
+    }
+</style>
+<div class="container-scroller" xmlns:th="http://www.thymeleaf.org">
+    <!-- Menu ngang phía trên -->
+    <th:block th:include="/HorizontalNavbar"/>
+    <!-- End -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- Siderbar bên trái -->
+        <th:block th:include="/VerticalNavbar"/>
+        <!-- End -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-12 d-flex align-items-stretch grid-margin">
+                        <div class="row flex-grow">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="text-center">Tạo mới nhân viên</h4>
+                                        <form action=""  method="post" th:object="${appUser}" th:action="@{/manage-employee/create}" enctype="multipart/form-data">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>Tên tài khoản</label>
+                                                    <input class="form-control borderStyle" placeholder="Username" type="text" th:field="*{userName}" />
+                                                    <td th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Name Error</td>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Mật khẩu</label>
+                                                    <input class="form-control borderStyle" type="password" placeholder="Password" th:field="*{encrytedPassword}" />
+                                                    <td th:if="${#fields.hasErrors('encrytedPassword')}" th:errors="*{encrytedPassword}">Pass Error</td>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Họ và tên</label>
+                                                <input class="form-control borderStyle" placeholder="Tên đầy đủ" type="text" th:field="*{fullName}" />
+                                                <td th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">FullName Error</td>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label>Số điện thoại</label>
+                                                    <input class="form-control borderStyle" type="text"  placeholder="Số điện thoại phải là số,tối đa 11 chữ số" th:field="*{phone}" />
+                                                    <td th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone Error</td>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Địa chỉ</label>
+                                                    <input class="form-control borderStyle"  placeholder="Số 2 ngõ 61 Giang Văn Minh" type="text" th:field="*{address}" />
+                                                    <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Price Error</td>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Tuổi</label>
+                                                    <input class="form-control borderStyle" type="text" th:field="*{age}" />
+                                                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Price Error</td>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="role">Vai trò</label>
+                                                    <select id="role" name="role" class="form-control">
+                                                        <option selected>Choose ...</option>
+                                                        <option value="1">Admin</option>
+                                                        <option value="2">Employee</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="status">Trạng thái tài khoản</label>
+                                                    <select id="status" name="status" class="form-control">
+                                                        <option selected>Choose ...</option>
+                                                        <option value="1">Đã kích hoạt</option>
+                                                        <option value="2">Khóa</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Tạo mới</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JS -->
+<script src="/vendors/js/vendor.bundle.base.js"></script>
+<script src="/vendors/js/vendor.bundle.addons.js"></script>
+<script src="/js/misc.js"></script>
+<script src="/js/dashboard.js"></script>
+<script>
+    $('.nav .nav-item:nth-child(4)').addClass('active');
+</script>
+</body>
+</html>

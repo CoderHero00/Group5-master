@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bus Reservation System</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/customCSS.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+</head>
+
+<body>
+<div class="container-scroller" xmlns:th="http://www.thymeleaf.org">
+    <th:block th:include="/HorizontalNavbar"/>
+    <!-- Siderbar bên trái -->
+    <div class="container-fluid page-body-wrapper">
+        <th:block th:include="/VerticalNavbar"/>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-12 d-flex align-items-stretch grid-margin">
+                        <div class="row flex-grow">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="text-center">Danh sách nhân viên</h4>
+                                        <a class="btn btn-success" href="/manage-employee/create">
+                                            <span class="mdi mdi-plus"></span>
+                                            Thêm nhân viên
+                                        </a>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>Avatar</th>
+                                                    <th>Tài khoản</th>
+                                                    <th>Họ và tên</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Địa chỉ</th>
+                                                    <th>Tuổi</th>
+                                                    <th>Thao tác</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="emp :${employeeInfo}" th:id="${'employee-' + emp.getUserId()}">
+                                                    <td class="py-1">
+                                                        <img src="images/user_default_photo.png" alt="profile image">
+                                                    </td>
+                                                    <td th:text="${emp.getUserName()}"></td>
+                                                    <td class="product-name" th:text="${emp.getFullName()}"></td>
+                                                    <td th:text="${emp.getPhone()}"></td>
+                                                    <td th:text="${emp.getAddress()}"></td>
+                                                    <td th:text="${emp.getAge()} "></td>
+                                                    <td>
+                                                        <span class="mdi mdi-delete mr-5">
+                                                            <a th:href="@{'/emp/delete/' + ${emp.getUserId()}}">Xóa</a>
+                                                        </span>
+                                                        <span class="mdi mdi-pencil">
+                                                            <a th:href="@{'/emp/edit/' + ${emp.getUserId()}}">Sửa</a>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JS -->
+<script src="vendors/js/vendor.bundle.base.js"></script>
+<script src="vendors/js/vendor.bundle.addons.js"></script>
+<script src="js/misc.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bus Reservation System</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/customCSS.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+</head>
+
+<body>
+<div class="container-scroller" xmlns:th="http://www.thymeleaf.org">
+    <th:block th:include="/HorizontalNavbar"/>
+    <div class="container-fluid page-body-wrapper">
+        <th:block th:include="/VerticalNavbar"/>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-12 d-flex align-items-stretch grid-margin">
+                        <div class="row flex-grow">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="text-center">Tìm kiếm thông tin các chuyến xe</h4>
+                                        <form>
+                                            <div class="col-md-12" style="display: flex">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="from">Điểm khởi hành</label>
+                                                        <input type="text" class="form-control" id="from"
+                                                               placeholder="Điểm khởi hành">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="to">Ngày đi</label>
+                                                        <input type="date" class="form-control" id="datefrom"
+                                                               placeholder="Ngày đi">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="to">Điểm đến</label>
+                                                        <input type="text" class="form-control" id="to"
+                                                               placeholder="Điểm đến">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="from">Ngày đến</label>
+                                                        <input type="date" class="form-control" id="dateto"
+                                                               placeholder="Ngày đến">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-success mr-2">Tìm kiếm</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="vendors/js/vendor.bundle.base.js"></script>
+<script src="vendors/js/vendor.bundle.addons.js"></script>
+<script src="js/off-canvas.js"></script>
+<script src="js/misc.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+    $('.nav .nav-item:nth-child(2)').addClass('active');
+</script>
+</body>
+</html>
